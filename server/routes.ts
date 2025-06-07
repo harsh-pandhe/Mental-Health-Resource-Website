@@ -4,7 +4,6 @@ import { storage } from "./storage";
 import { insertFeedbackSchema, insertMoodEntrySchema, insertBreathingActivitySchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Feedback endpoints
   app.post("/api/feedback", async (req, res) => {
     try {
       const validatedData = insertFeedbackSchema.parse(req.body);
@@ -24,7 +23,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Mood tracking endpoints
   app.post("/api/mood", async (req, res) => {
     try {
       const validatedData = insertMoodEntrySchema.parse(req.body);
@@ -44,7 +42,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Breathing activity endpoints
   app.post("/api/breathing", async (req, res) => {
     try {
       const validatedData = insertBreathingActivitySchema.parse(req.body);

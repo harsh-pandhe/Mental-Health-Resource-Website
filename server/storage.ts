@@ -1,9 +1,9 @@
-import { 
-  users, 
-  feedbacks, 
-  moodEntries, 
+import {
+  users,
+  feedbacks,
+  moodEntries,
   breathingActivities,
-  type User, 
+  type User,
   type InsertUser,
   type Feedback,
   type InsertFeedback,
@@ -17,13 +17,13 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   createFeedback(feedback: InsertFeedback): Promise<Feedback>;
   getFeedbacks(): Promise<Feedback[]>;
-  
+
   createMoodEntry(moodEntry: InsertMoodEntry): Promise<MoodEntry>;
   getMoodEntries(): Promise<MoodEntry[]>;
-  
+
   createBreathingActivity(activity: InsertBreathingActivity): Promise<BreathingActivity>;
   getBreathingActivities(): Promise<BreathingActivity[]>;
 }
@@ -68,13 +68,13 @@ export class MemStorage implements IStorage {
 
   async createFeedback(insertFeedback: InsertFeedback): Promise<Feedback> {
     const id = this.currentFeedbackId++;
-    const feedback: Feedback = { 
-      id, 
+    const feedback: Feedback = {
+      id,
       content: insertFeedback.content ?? null,
       rating: insertFeedback.rating,
       mood: insertFeedback.mood ?? null,
       metadata: insertFeedback.metadata ?? null,
-      timestamp: new Date() 
+      timestamp: new Date()
     };
     this.feedbacks.set(id, feedback);
     return feedback;
@@ -88,11 +88,11 @@ export class MemStorage implements IStorage {
 
   async createMoodEntry(insertMoodEntry: InsertMoodEntry): Promise<MoodEntry> {
     const id = this.currentMoodEntryId++;
-    const moodEntry: MoodEntry = { 
-      id, 
+    const moodEntry: MoodEntry = {
+      id,
       mood: insertMoodEntry.mood,
       notes: insertMoodEntry.notes ?? null,
-      timestamp: new Date() 
+      timestamp: new Date()
     };
     this.moodEntries.set(id, moodEntry);
     return moodEntry;
@@ -106,11 +106,11 @@ export class MemStorage implements IStorage {
 
   async createBreathingActivity(insertActivity: InsertBreathingActivity): Promise<BreathingActivity> {
     const id = this.currentBreathingActivityId++;
-    const activity: BreathingActivity = { 
-      id, 
+    const activity: BreathingActivity = {
+      id,
       duration: insertActivity.duration,
       completed: insertActivity.completed ?? 0,
-      timestamp: new Date() 
+      timestamp: new Date()
     };
     this.breathingActivities.set(id, activity);
     return activity;

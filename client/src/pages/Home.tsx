@@ -8,11 +8,11 @@ import { useFeedback } from "@/hooks/useFirestore";
 import MoodTracker from "@/components/MoodTracker";
 import BreathingExercise from "@/components/BreathingExercise";
 import StarRating from "@/components/StarRating";
-import { 
-  Brain, 
-  Wrench, 
-  UserCheck, 
-  Phone, 
+import {
+  Brain,
+  Wrench,
+  UserCheck,
+  Phone,
   Heart,
   Leaf,
   ChartLine,
@@ -82,7 +82,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-green-600/10 rounded-3xl"></div>
             <div className="absolute top-10 left-10 w-20 h-20 bg-blue-200/50 rounded-full blur-xl"></div>
             <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-200/50 rounded-full blur-xl"></div>
-            
+
             {/* Hero Content */}
             <div className="relative z-10 text-center py-16 px-6">
               <div className="space-y-6">
@@ -92,11 +92,11 @@ export default function Home() {
                     Inner Peace
                   </span>
                 </h1>
-                
+
                 <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                   Free, accessible mental health support and guidance. No registration needed - just care when you need it.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                   <Link href="/learn">
                     <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -130,8 +130,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <a 
-                  href="tel:1800-599-0019" 
+                <a
+                  href="tel:1800-599-0019"
                   className="bg-white text-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 text-center inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <Phone className="w-4 h-4 mr-2" />
@@ -203,7 +203,7 @@ export default function Home() {
               const IconComponent = stat.icon;
               const colors = ["blue", "green", "purple", "orange"];
               const color = colors[index % colors.length];
-              
+
               return (
                 <Card key={index} className={`text-center border-0 bg-gradient-to-br from-${color}-50 to-${color}-100 hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
                   <CardContent className="p-6">
@@ -229,7 +229,7 @@ export default function Home() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Quick Wellness Check</h2>
                 <p className="text-lg text-gray-600">Take a moment to check in with yourself</p>
               </div>
-              
+
               <div className="space-y-12">
                 <MoodTracker />
                 <BreathingExercise />
@@ -251,18 +251,18 @@ export default function Home() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Help Us Improve</h2>
                 <p className="text-lg text-gray-600">Your feedback helps us create better mental health support</p>
               </div>
-              
+
               <div className="space-y-6 max-w-2xl mx-auto">
                 <div>
                   <h3 className="text-xl font-semibold mb-4 text-center">Rate your experience with this app:</h3>
                   <div className="flex justify-center">
-                    <StarRating 
-                      rating={feedbackRating} 
-                      onRatingChange={setFeedbackRating} 
+                    <StarRating
+                      rating={feedbackRating}
+                      onRatingChange={setFeedbackRating}
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Share your thoughts (optional):</h3>
                   <Textarea
@@ -272,16 +272,16 @@ export default function Home() {
                     className="min-h-32 resize-none border-0 bg-white/50 backdrop-blur-sm focus:bg-white transition-all duration-300"
                   />
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
+                  <Button
                     onClick={handleSubmitFeedback}
                     disabled={isSubmitting || feedbackRating === 0}
                     className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                   >
                     {isSubmitting ? "Submitting..." : "Submit Feedback"}
                   </Button>
-                  <Button 
+                  <Button
                     onClick={clearFeedback}
                     variant="outline"
                     disabled={feedbackRating === 0 && !feedbackText.trim()}

@@ -8,12 +8,12 @@ import { useToast } from "@/hooks/use-toast";
 import { useMoodTracking, useBreathingActivities } from "@/hooks/useFirestore";
 import MoodTracker from "@/components/MoodTracker";
 import BreathingExercise from "@/components/BreathingExercise";
-import { 
-  Wrench, 
-  Heart, 
-  Leaf, 
-  BookOpen, 
-  Target, 
+import {
+  Wrench,
+  Heart,
+  Leaf,
+  BookOpen,
+  Target,
   Brain,
   Clock,
   Download,
@@ -126,7 +126,7 @@ export default function Tools() {
     {
       title: "Stress Management Plan",
       description: "Create your personalized stress management strategy",
-      pages: "6 pages", 
+      pages: "6 pages",
       category: "Stress",
       techniques: ["Stress identification", "Coping strategies", "Prevention planning", "Recovery methods"]
     },
@@ -154,7 +154,7 @@ export default function Tools() {
       steps: [
         "Find 5 things you can see",
         "Identify 4 things you can touch",
-        "Notice 3 things you can hear", 
+        "Notice 3 things you can hear",
         "Find 2 things you can smell",
         "Identify 1 thing you can taste"
       ]
@@ -173,7 +173,7 @@ export default function Tools() {
     },
     {
       title: "Walking Meditation",
-      duration: "5-20 minutes", 
+      duration: "5-20 minutes",
       description: "Combine movement with mindfulness",
       steps: [
         "Start walking at a slow, comfortable pace",
@@ -245,7 +245,7 @@ export default function Tools() {
   const getCategoryColor = (category: string) => {
     const colors = {
       "emotions": "bg-red-100 text-red-700",
-      "gratitude": "bg-green-100 text-green-700", 
+      "gratitude": "bg-green-100 text-green-700",
       "goals": "bg-blue-100 text-blue-700",
       "reflection": "bg-purple-100 text-purple-700"
     };
@@ -281,7 +281,7 @@ export default function Tools() {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
@@ -295,7 +295,7 @@ export default function Tools() {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
@@ -322,7 +322,7 @@ export default function Tools() {
         {/* Interactive Tools */}
         <TabsContent value="interactive">
           <div className="space-y-8">
-            
+
             {/* Mood & Breathing */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
@@ -382,7 +382,7 @@ export default function Tools() {
                       <h4 className="font-medium capitalize">{selectedCategory} Prompts:</h4>
                       <div className="grid grid-cols-1 gap-3">
                         {journalPrompts[selectedCategory as keyof typeof journalPrompts].map((prompt, index) => (
-                          <div 
+                          <div
                             key={index}
                             className="p-3 border border-gray-200 rounded-lg hover:border-primary cursor-pointer transition-colors"
                             onClick={() => handlePromptSelect(prompt)}
@@ -401,7 +401,7 @@ export default function Tools() {
                       onChange={(e) => setJournalText(e.target.value)}
                       className="min-h-32 resize-none"
                     />
-                    
+
                     <div className="bg-yellow-50 p-3 rounded-lg">
                       <p className="text-xs text-yellow-800 flex items-start gap-2">
                         <Lightbulb className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -410,14 +410,14 @@ export default function Tools() {
                     </div>
 
                     <div className="flex gap-3">
-                      <Button 
+                      <Button
                         onClick={copyJournalText}
                         disabled={!journalText.trim()}
                         variant="outline"
                       >
                         Copy Text
                       </Button>
-                      <Button 
+                      <Button
                         onClick={clearJournal}
                         disabled={!journalText.trim()}
                         variant="outline"
@@ -483,7 +483,7 @@ export default function Tools() {
                 <p className="text-gray-600">
                   Find a comfortable position, put on headphones if available, and let these guided sessions support your wellness practice.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {meditationAudios.map((audio) => (
                     <div key={audio.id} className="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors">
@@ -494,9 +494,9 @@ export default function Tools() {
                         </div>
                         <span className="text-sm text-gray-500">{audio.duration}</span>
                       </div>
-                      
+
                       <p className="text-sm text-gray-600 mb-4">{audio.description}</p>
-                      
+
                       <Button
                         onClick={() => playAudio(audio.id)}
                         variant={currentAudio === audio.id ? "default" : "outline"}
@@ -553,7 +553,7 @@ export default function Tools() {
                 <p className="text-gray-600">
                   Download these evidence-based worksheets to develop practical coping strategies and track your progress.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {copingWorksheets.map((worksheet, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg p-6">
@@ -564,9 +564,9 @@ export default function Tools() {
                         </div>
                         <span className="text-sm text-gray-500">{worksheet.pages}</span>
                       </div>
-                      
+
                       <p className="text-gray-600 mb-4">{worksheet.description}</p>
-                      
+
                       <div className="space-y-3">
                         <h4 className="font-medium text-sm">Includes:</h4>
                         <ul className="space-y-1">
@@ -578,7 +578,7 @@ export default function Tools() {
                           ))}
                         </ul>
                       </div>
-                      
+
                       <Button
                         onClick={() => downloadWorksheet(worksheet)}
                         className="w-full mt-4"
@@ -598,7 +598,7 @@ export default function Tools() {
         {/* Recommended Resources */}
         <TabsContent value="resources">
           <div className="space-y-6">
-            
+
             {/* Recommended Books */}
             <Card>
               <CardHeader>
